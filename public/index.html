@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html ng-app="DNAtoAA" lang="en">
+	<head>
+		<meta charset="UTF-8"> 
+		<title>DNA to Protein!</title>
+	
+		<style>
+			body {
+				text-align: center;
+				
+			}
+			#dnaIn {
+				width: 320px;
+				height: 100px;
+				text-align: center;
+				border-radius: 10px;			
+			}
+			#prtnOut {
+				width: 320px;
+				height: 100px;
+				text-align: center;
+				border-radius: 10px;			
+			}
+			textarea {
+				text-align: center;
+			}
+			h1 {
+				text-align: center;
+				font-family: Arial;
+				text-shadow:2px 1px 0px #677724;
+			}
+			
+			
+			button {
+				-moz-box-shadow:inset -8px -8px 0px -49px #c1ed9c;
+				-webkit-box-shadow:inset -8px -8px 0px -49px #c1ed9c;
+				box-shadow:inset -8px -8px 0px -49px #c1ed9c;
+				background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #9dce2c), color-stop(1, #8cb82b) );
+				background:-moz-linear-gradient( center top, #9dce2c 5%, #8cb82b 100% );
+				filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#9dce2c', endColorstr='#8cb82b');
+				background-color:#9dce2c;
+				-webkit-border-top-left-radius:42px;
+				-moz-border-radius-topleft:42px;
+				border-top-left-radius:42px;
+				-webkit-border-top-right-radius:0px;
+				-moz-border-radius-topright:0px;
+				border-top-right-radius:0px;
+				-webkit-border-bottom-right-radius:42px;
+				-moz-border-radius-bottomright:42px;
+				border-bottom-right-radius:42px;
+				-webkit-border-bottom-left-radius:0px;
+				-moz-border-radius-bottomleft:0px;
+				border-bottom-left-radius:0px;
+				text-indent:0px;
+				border:2px solid #83c41a;
+				display:inline-block;
+				color:#ffffff;
+				font-family:Arial;
+				font-size:18px;
+				font-weight:bold;
+				font-style:normal;
+				height:56px;
+				line-height:56px;
+				width:120px;
+				text-decoration:none;
+				text-align:center;
+				text-shadow:3px 1px 0px #689324;
+			}
+			button:hover {
+				background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #8cb82b), color-stop(1, #9dce2c) );
+				background:-moz-linear-gradient( center top, #8cb82b 5%, #9dce2c 100% );
+				filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#8cb82b', endColorstr='#9dce2c');
+				background-color:#8cb82b;
+			}
+			button:active {
+				position:relative;
+				top:1px;
+			}
+		</style>
+	</head>
+
+	<body ng-controller="bC">
+		
+		<script type="text/javascript" src="angular.min.js"></script>
+		<script type="text/javascript" src="angular.js"></script>
+
+
+
+		<h1>{{blat}}</h1>
+		</br>
+		<textarea ng-model="dna" type="text" placeholder="Enter your DNA sequence here" id="dnaIn"></textarea>
+		</br></br>
+		<button ng-click="convert()">Convert!</button>
+		<button ng-click="clear()" ng-show="fill">Clear</button>
+		</br></br>
+		<div ng-show="rekt">
+			<p>Here is your protein sequence: <p>
+			<textarea id="prtnOut">{{prtnSeq}}</textarea>
+		</div>
+		
+		<h4>Access to Database</h4>
+
+		<button ng-click="getPrtn()"> Retrieve! </button>
+		</br></br>
+		<div ng-repeat="seq in seqs">
+			</br>
+			Input DNA: </br>
+			<textarea>{{seq.DNAsequence}}</textarea>
+			</br>
+			Output Protein: </br>
+			<textarea>{{seq.Prtnsequence}}</textarea>
+			</br></br>
+		</div>
+		
+	</body>
+
+</html>
